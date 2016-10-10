@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+
+<tiles-definitions>
+    
+    <!--BLOG-->
+    <definition name="baseLayout" template="/WEB-INF/views/layouts/blog/blogLayout.jsp" >
+        <put-attribute name="title"  value="aaa"/>
+        <put-attribute name="body" value=""/>
+    </definition>
+    <definition name="home" extends="baseLayout">
+        <put-attribute name="title" value="N-blog" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/blog/home.jsp" />
+    </definition>    
+    <definition name="viewpost" extends="baseLayout">
+        <put-attribute name="title" value="N-blog" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/blog/viewpost.jsp" />
+    </definition>  
+    
+    <!--ADMIN-->
+    <definition name="baseLayoutAdmin" template="/WEB-INF/views/layouts/admin/adminLayout.jsp" >
+        <put-attribute name="title"  value=""/>
+        <put-attribute name="body" value=""/>
+    </definition>
+  
+    <definition name="setting" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Setting" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/admin/setting.jsp" />
+    </definition>
+    <definition name="posts" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Posts" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/admin/posts.jsp" />
+    </definition>
+    <definition name="postdetail" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Posts" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/admin/postdetail.jsp" />
+    </definition>
+    <definition name="profile" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Posts" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/admin/profile.jsp" />
+    </definition>
+    <definition name="userdetail" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Posts" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/admin/userdetail.jsp" />
+    </definition>
+    <definition name="users" extends="baseLayoutAdmin">
+        <put-attribute name="title" value="Posts" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/admin/users.jsp" />
+    </definition>
+    <definition name="login" template="/WEB-INF/views/pages/admin/login.jsp" >
+        <!--<put-attribute name="title"  value="Login"/>-->      
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,47 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">    
+
+    <context:annotation-config />
+    <context:component-scan base-package="nblog.controller" />
+    <mvc:annotation-driven/>
+    
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+    <!-- INIT -->
+    <bean id="configuration" class="nblog.utility.Configuration" scope="singleton" init-method="init" destroy-method="destroy"/>
+    <bean id="execpageInterceptor" class="nblog.utility.ExecPageInterceptor" />
+    <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+    <!-- CONTROLLERS -->
+    <bean id="homeController" class="nblog.controller.HomeController"/>
+    <bean id="viewPostController" class="nblog.controller.ViewPostController"/>
+    <bean id="adminController" class="nblog.controller.admin.AdminController"/>
+    <bean id="loginController" class="nblog.controller.admin.LoginController"/>
+    <!-- ============== HANDLE MAPPING =================== -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/home.html">homeController</prop>
+                <prop key="/viewpost.html">viewPostController</prop>
+                <prop key="/admin/*">adminController</prop>
+                <prop key="/login.html">loginController</prop>
+                
+            </props>
+        </property>
+        <property name="interceptors">
+            <list>
+                <ref bean="execpageInterceptor" />
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

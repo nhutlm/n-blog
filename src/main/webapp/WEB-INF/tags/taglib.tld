@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/javaee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">-->    
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+    <description>Tag Library</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>taglib</short-name>        
+    <tag>
+        <description>
+            show notification such as error, warning, result message,....
+        </description>
+        <name>notification</name>
+        <tag-class>nblog.utility.NotificationTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>type</name>
+            <type>java.lang.String</type>     
+            <required>false</required>       
+            <description>type of message</description>
+        </attribute>
+        <attribute>
+            <name>displayed</name>
+            <type>java.lang.Boolean</type>     
+            <required>false</required>   
+            <rtexprvalue>true</rtexprvalue>            
+            <description>a bool value to show or hide message</description>    
+        </attribute>
+        <attribute>
+            <name>dataSource</name>
+            <type>nblog.dtos.ResultDTO</type>     
+            <required>false</required>   
+            <rtexprvalue>true</rtexprvalue>
+            
+            <description>data source</description>    
+        </attribute>
+    </tag>
+      
+    
+    
+</taglib>
